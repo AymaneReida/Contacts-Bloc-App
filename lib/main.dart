@@ -1,11 +1,12 @@
-import 'package:contacts_bloc_app/bloc/contacts.bloc.dart';
 import 'package:contacts_bloc_app/repositories/contacts.repository.dart';
 import 'package:contacts_bloc_app/ui/pages/contacts/contacts.page.dart';
+import 'package:contacts_bloc_app/ui/pages/messages/messages.page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
-import 'bloc/contacts.state.dart';
+import 'bloc/contacts/contacts.bloc.dart';
+import 'bloc/contacts/contacts.state.dart';
 import 'enums/enums.dart';
 
 void main() {
@@ -41,7 +42,10 @@ class MyApp extends StatelessWidget {
           800: Color(0xff5e2750),
           900: Color(0xff5e2750),
         })),
-        routes: {'/contacts': (context) => ContactsPage()},
+        routes: {
+          '/contacts': (context) => ContactsPage(),
+          '/messages': (context) => MessagesPage(),
+        },
         initialRoute: '/contacts',
       ),
     );

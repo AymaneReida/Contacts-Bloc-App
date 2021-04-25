@@ -1,6 +1,5 @@
-import 'package:contacts_bloc_app/bloc/contacts.actions.dart';
-import 'package:contacts_bloc_app/bloc/contacts.bloc.dart';
-import 'package:contacts_bloc_app/bloc/contacts.state.dart';
+import 'package:contacts_bloc_app/bloc/contacts/contacts.bloc.dart';
+import 'package:contacts_bloc_app/bloc/contacts/contacts.state.dart';
 import 'package:contacts_bloc_app/enums/enums.dart';
 import 'package:contacts_bloc_app/ui/pages/contacts/widgets/contacts.bar.buttons.dart';
 import 'package:contacts_bloc_app/ui/pages/contacts/widgets/contacts.list.dart';

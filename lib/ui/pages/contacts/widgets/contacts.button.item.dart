@@ -1,6 +1,6 @@
-import 'package:contacts_bloc_app/bloc/contacts.actions.dart';
-import 'package:contacts_bloc_app/bloc/contacts.bloc.dart';
-import 'package:contacts_bloc_app/bloc/contacts.state.dart';
+import 'package:contacts_bloc_app/bloc/contacts/contacts.actions.dart';
+import 'package:contacts_bloc_app/bloc/contacts/contacts.bloc.dart';
+import 'package:contacts_bloc_app/bloc/contacts/contacts.state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

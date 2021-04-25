@@ -1,5 +1,4 @@
-import 'package:contacts_bloc_app/bloc/contacts.actions.dart';
-
+import 'package:contacts_bloc_app/bloc/contacts/contacts.actions.dart';
 import 'package:flutter/material.dart';
 
 import 'contacts.button.item.dart';
