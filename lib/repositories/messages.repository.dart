@@ -3,12 +3,14 @@ import 'dart:math';
 import 'package:contacts_bloc_app/model/message.model.dart';
 
 class MessagesRepository {
+  int messageCount;
   Map<int, Message> messages = {
     1: Message(
         id: 1,
         contactID: 1,
         date: DateTime.now(),
-        content: "Hello Aymane",
+        content:
+            "Hello I am Aymane skfbdskfbsf sqjsqjbfqksjfb lqksdnslqqsd lsndslnlsfnds lksndlsnfcdlfn",
         type: 'sent'),
     2: Message(
         id: 2,
@@ -26,21 +28,38 @@ class MessagesRepository {
         id: 4,
         contactID: 1,
         date: DateTime.now(),
-        content: "No thing",
+        content:
+            "No thing skfbdskfbsf sqjsqjbfqksjfb lqksdnslqqsd lsndslnlsfnds lksndlsnfcdlfn",
         type: 'received'),
     5: Message(
         id: 5,
         contactID: 2,
         date: DateTime.now(),
-        content: "Hi Mohamed",
+        content: "Hi I am Mohamed",
         type: 'sent'),
     6: Message(
         id: 6,
         contactID: 2,
         date: DateTime.now(),
-        content: "HWell received",
+        content: "Well received",
         type: 'received'),
   };
+
+  MessagesRepository() {
+    this.messageCount = messages.length;
+  }
+
+  Future<Message> addNewMessage(Message message) async {
+    var future = await Future.delayed(Duration(seconds: 1));
+    int rnd = new Random().nextInt(10);
+    if (rnd > 1) {
+      message.id = ++messageCount;
+      messages[message.id] = message;
+      return message;
+    } else {
+      throw new Exception("Internet Error");
+    }
+  }
 
   Future<List<Message>> allMessages() async {
     var future = await Future.delayed(Duration(seconds: 1));
@@ -58,7 +77,8 @@ class MessagesRepository {
     if (rnd > 1) {
       return messages.values
           .toList()
-          .where((element) => element.contactID == contactID);
+          .where((element) => element.contactID == contactID)
+          .toList();
     } else {
       throw new Exception("Internet Error");
     }
