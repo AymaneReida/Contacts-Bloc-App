@@ -33,11 +33,12 @@ class MyApp extends StatelessWidget {
                 )),
         BlocProvider(
             create: (context) => MessagesBloc(
-              initialState: MessagesState.initialState(),
-              messagesRepository: GetIt.instance<MessagesRepository>(),
-            )),
+                  initialState: MessagesState.initialState(),
+                  messagesRepository: GetIt.instance<MessagesRepository>(),
+                )),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
             primarySwatch: MaterialColor(0xff5e2750, {
           50: Color(0xff5e2750),

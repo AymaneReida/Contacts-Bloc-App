@@ -78,6 +78,28 @@ class MessagesBloc extends Bloc<MessagesEvent, MessagesState> {
           currentMessageEvent: event,
           selectedMessages: selected);
       yield messagesState;
+    } else if (event is DeleteMessagesEvent) {
+      List<Message> messages = state.messages;
+      List<Message> selected = [...state.selectedMessages];
+      for (Message m in selected) {
+        try {
+          await messagesRepository.deleteMessage(m);
+          messages.removeWhere((element) => element.id == m.id);
+          MessagesState messagesState = MessagesState(
+              requestState: RequestState.LOADED,
+              messages: messages,
+              currentMessageEvent: event,
+              selectedMessages: selected);
+          yield messagesState;
+        } catch (e) {
+          MessagesState messagesState = MessagesState(
+              requestState: RequestState.ERROR,
+              messages: messages,
+              currentMessageEvent: event,
+              selectedMessages: selected);
+          yield messagesState;
+        }
+      }
     }
   }
 }

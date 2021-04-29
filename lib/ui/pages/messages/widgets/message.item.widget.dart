@@ -14,7 +14,7 @@ class MessageItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       selected: message.selected,
-      selectedTileColor: Color(0xff34b7f1),
+      selectedTileColor: Colors.black12,
       onLongPress: () {
         context.read<MessagesBloc>().add(new SelectMessageEvent(message));
       },
@@ -33,14 +33,14 @@ class MessageItemWidget extends StatelessWidget {
           Flexible(
             child: Container(
               color: (message.type == 'sent')
-                  ? Color.fromARGB(20, 220, 248, 198)
+                  ? Color.fromARGB(20, 0, 255, 0)
                   : Color.fromARGB(20, 255, 255, 255),
               padding: EdgeInsets.all(20),
               margin: EdgeInsets.all(10),
               foregroundDecoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
-                    color: (message.type == 'sent') ? Colors.green : Colors.red,
+                    color: (message.type == 'sent') ? Colors.green : Colors.green,
                     width: 1,
                   )),
               child: Text(

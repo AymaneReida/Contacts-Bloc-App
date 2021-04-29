@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:contacts_bloc_app/model/contact.model.dart';
 import 'package:contacts_bloc_app/model/message.model.dart';
 
@@ -17,4 +19,8 @@ class AddNewMessageEvent extends MessagesEvent<Message> {
 
 class SelectMessageEvent extends MessagesEvent<Message> {
   SelectMessageEvent(Message payload) : super(payload);
+}
+
+class DeleteMessagesEvent extends MessagesEvent {
+  DeleteMessagesEvent() : super(null);
 }

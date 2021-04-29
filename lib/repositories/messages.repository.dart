@@ -10,7 +10,7 @@ class MessagesRepository {
         contactID: 1,
         date: DateTime.now(),
         content:
-            "Hello I am Aymane skfbdskfbsf sqjsqjbfqksjfb lqksdnslqqsd lsndslnlsfnds lksndlsnfcdlfn",
+            "Hello Aymane skfbdskfbsf sqjsqjbfqksjfb lqksdnslqqsd lsndslnlsfnds lksndlsnfcdlfn",
         type: 'sent',
         selected: false),
     2: Message(
@@ -39,7 +39,7 @@ class MessagesRepository {
         id: 5,
         contactID: 2,
         date: DateTime.now(),
-        content: "Hi I am Mohamed",
+        content: "Hi Mohamed",
         type: 'sent',
         selected: false),
     6: Message(
@@ -85,6 +85,16 @@ class MessagesRepository {
           .toList()
           .where((element) => element.contactID == contactID)
           .toList();
+    } else {
+      throw new Exception("Internet Error");
+    }
+  }
+
+  Future<void> deleteMessage(Message message) async {
+    var future = await Future.delayed(Duration(seconds: 1));
+    int rnd = new Random().nextInt(10);
+    if (rnd > 0) {
+      messages.remove(message.id);
     } else {
       throw new Exception("Internet Error");
     }
