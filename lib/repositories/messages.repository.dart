@@ -11,38 +11,44 @@ class MessagesRepository {
         date: DateTime.now(),
         content:
             "Hello I am Aymane skfbdskfbsf sqjsqjbfqksjfb lqksdnslqqsd lsndslnlsfnds lksndlsnfcdlfn",
-        type: 'sent'),
+        type: 'sent',
+        selected: false),
     2: Message(
         id: 2,
         contactID: 1,
         date: DateTime.now(),
         content: "OK Thank's",
-        type: 'received'),
+        type: 'received',
+        selected: false),
     3: Message(
         id: 3,
         contactID: 1,
         date: DateTime.now(),
         content: "What are you doing ?",
-        type: 'sent'),
+        type: 'sent',
+        selected: false),
     4: Message(
         id: 4,
         contactID: 1,
         date: DateTime.now(),
         content:
             "No thing skfbdskfbsf sqjsqjbfqksjfb lqksdnslqqsd lsndslnlsfnds lksndlsnfcdlfn",
-        type: 'received'),
+        type: 'received',
+        selected: false),
     5: Message(
         id: 5,
         contactID: 2,
         date: DateTime.now(),
         content: "Hi I am Mohamed",
-        type: 'sent'),
+        type: 'sent',
+        selected: false),
     6: Message(
         id: 6,
         contactID: 2,
         date: DateTime.now(),
         content: "Well received",
-        type: 'received'),
+        type: 'received',
+        selected: false),
   };
 
   MessagesRepository() {

@@ -1,6 +1,9 @@
+import 'package:contacts_bloc_app/bloc/messages/messages.actions.dart';
+import 'package:contacts_bloc_app/bloc/messages/messages.bloc.dart';
 import 'package:contacts_bloc_app/model/message.model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MessageItemWidget extends StatelessWidget {
   Message message;
@@ -10,6 +13,11 @@ class MessageItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      selected: message.selected,
+      selectedTileColor: Color(0xff34b7f1),
+      onLongPress: () {
+        context.read<MessagesBloc>().add(new SelectMessageEvent(message));
+      },
       title: Row(
         mainAxisAlignment: (message.type == 'sent')
             ? MainAxisAlignment.end
@@ -25,8 +33,8 @@ class MessageItemWidget extends StatelessWidget {
           Flexible(
             child: Container(
               color: (message.type == 'sent')
-                  ? Color.fromARGB(20, 0, 255, 0)
-                  : Color.fromARGB(20, 255, 0, 0),
+                  ? Color.fromARGB(20, 220, 248, 198)
+                  : Color.fromARGB(20, 255, 255, 255),
               padding: EdgeInsets.all(20),
               margin: EdgeInsets.all(10),
               foregroundDecoration: BoxDecoration(

@@ -14,3 +14,7 @@ class MessagesByContactsEvent extends MessagesEvent<Contact> {
 class AddNewMessageEvent extends MessagesEvent<Message> {
   AddNewMessageEvent(Message payload) : super(payload);
 }
+
+class SelectMessageEvent extends MessagesEvent<Message> {
+  SelectMessageEvent(Message payload) : super(payload);
+}
