@@ -8,7 +8,12 @@ class ContactsState {
   RequestState requestState;
   String errorMessage;
   ContactsEvent currentEvent;
+  Contact currentContact;
 
   ContactsState(
-      {this.contacts, this.requestState, this.errorMessage, this.currentEvent});
+      {this.contacts,
+      this.requestState,
+      this.errorMessage,
+      this.currentEvent,
+      this.currentContact});
 }

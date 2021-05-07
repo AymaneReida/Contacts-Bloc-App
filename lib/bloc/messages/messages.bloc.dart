@@ -19,7 +19,8 @@ class MessagesBloc extends Bloc<MessagesEvent, MessagesState> {
           requestState: RequestState.LOADING,
           messages: state.messages,
           currentMessageEvent: event,
-          selectedMessages: state.selectedMessages);
+          selectedMessages: state.selectedMessages,
+          currentContact: event.payload);
       try {
         List<Message> data =
             await messagesRepository.allMessagesByContact(event.payload.id);
@@ -27,14 +28,16 @@ class MessagesBloc extends Bloc<MessagesEvent, MessagesState> {
             requestState: RequestState.LOADED,
             messages: data,
             currentMessageEvent: event,
-            selectedMessages: state.selectedMessages);
+            selectedMessages: state.selectedMessages,
+            currentContact: event.payload);
       } catch (e) {
         yield MessagesState(
             requestState: RequestState.ERROR,
             messages: state.messages,
             errorMessage: e.toString(),
             currentMessageEvent: event,
-            selectedMessages: state.selectedMessages);
+            selectedMessages: state.selectedMessages,
+            currentContact: event.payload);
       }
     } else if (event is AddNewMessageEvent) {
       /* yield MessagesState(
