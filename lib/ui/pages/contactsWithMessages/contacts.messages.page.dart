@@ -20,7 +20,7 @@ class ContactsWithMessages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     context.read<ContactsBloc>().add(new LoadAllContactsEvent());
-    return BlocBuilder<ContactsBloc, ContactsState>(
+    return BlocBuilder<MessagesBloc, MessagesState>(
       builder: (context, state) => Scaffold(
         appBar: MyAppBarWidget(
           contact: state.currentContact,
