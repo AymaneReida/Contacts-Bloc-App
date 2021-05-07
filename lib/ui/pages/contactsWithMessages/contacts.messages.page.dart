@@ -5,7 +5,9 @@ import 'package:contacts_bloc_app/bloc/messages/messages.actions.dart';
 import 'package:contacts_bloc_app/bloc/messages/messages.bloc.dart';
 import 'package:contacts_bloc_app/bloc/messages/messages.state.dart';
 import 'package:contacts_bloc_app/enums/enums.dart';
+import 'package:contacts_bloc_app/model/contact.model.dart';
 import 'package:contacts_bloc_app/ui/pages/contactsWithMessages/widgets/contacts.list.widget.dart';
+import 'package:contacts_bloc_app/ui/pages/messages/widgets/messages.app.bar.widget.dart';
 import 'package:contacts_bloc_app/ui/pages/messages/widgets/messages.form.widget.dart';
 import 'package:contacts_bloc_app/ui/pages/messages/widgets/messages.list.widget.dart';
 import 'package:contacts_bloc_app/ui/pages/messages/widgets/messages.widget.dart';
@@ -19,8 +21,8 @@ class ContactsWithMessages extends StatelessWidget {
   Widget build(BuildContext context) {
     context.read<ContactsBloc>().add(new LoadAllContactsEvent());
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Contacts With Messages'),
+      appBar: MyAppBarWidget(
+        contact: new Contact(),
       ),
       body: Column(
         children: [
