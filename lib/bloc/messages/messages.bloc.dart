@@ -53,14 +53,16 @@ class MessagesBloc extends Bloc<MessagesEvent, MessagesState> {
             requestState: RequestState.LOADED,
             messages: data,
             currentMessageEvent: event,
-            selectedMessages: state.selectedMessages);
+            selectedMessages: state.selectedMessages,
+            currentContact: state.currentContact);
       } catch (e) {
         yield MessagesState(
             requestState: RequestState.ERROR,
             messages: state.messages,
             errorMessage: e.message,
             currentMessageEvent: event,
-            selectedMessages: state.selectedMessages);
+            selectedMessages: state.selectedMessages,
+            currentContact: state.currentContact);
       }
     } else if (event is SelectMessageEvent) {
       List<Message> messages = state.messages;
@@ -79,7 +81,8 @@ class MessagesBloc extends Bloc<MessagesEvent, MessagesState> {
           requestState: RequestState.LOADED,
           messages: messages,
           currentMessageEvent: event,
-          selectedMessages: selected);
+          selectedMessages: selected,
+          currentContact: state.currentContact);
       yield messagesState;
     } else if (event is DeleteMessagesEvent) {
       List<Message> messages = state.messages;
@@ -92,14 +95,16 @@ class MessagesBloc extends Bloc<MessagesEvent, MessagesState> {
               requestState: RequestState.LOADED,
               messages: messages,
               currentMessageEvent: event,
-              selectedMessages: selected);
+              selectedMessages: selected,
+              currentContact: state.currentContact);
           yield messagesState;
         } catch (e) {
           MessagesState messagesState = MessagesState(
               requestState: RequestState.ERROR,
               messages: messages,
               currentMessageEvent: event,
-              selectedMessages: selected);
+              selectedMessages: selected,
+              currentContact: state.currentContact);
           yield messagesState;
         }
       }
