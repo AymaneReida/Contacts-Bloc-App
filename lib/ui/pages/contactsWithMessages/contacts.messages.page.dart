@@ -20,20 +20,20 @@ class ContactsWithMessages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     context.read<ContactsBloc>().add(new LoadAllContactsEvent());
-    return Scaffold(
-      appBar: MyAppBarWidget(
-        contact: new Contact(),
-      ),
-      body: Column(
-        children: [
-          ContactsListHorizontalWidget(),
-          MessagesWidget(),
-          BlocBuilder<ContactsBloc, ContactsState>(
-            builder: (context, state) => MessagesFormWidget(
+    return BlocBuilder<ContactsBloc, ContactsState>(
+      builder: (context, state) => Scaffold(
+        appBar: MyAppBarWidget(
+          contact: state.currentContact,
+        ),
+        body: Column(
+          children: [
+            ContactsListHorizontalWidget(),
+            MessagesWidget(),
+            MessagesFormWidget(
               contact: state.currentContact,
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

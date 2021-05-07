@@ -23,5 +23,6 @@ class MessagesState {
       : messages = [],
         errorMessage = '',
         requestState = RequestState.NONE,
-        selectedMessages = [];
+        selectedMessages = [],
+        currentContact = new Contact();
 }
